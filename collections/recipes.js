@@ -1,5 +1,6 @@
 Recipes = new Mongo.Collection('recipes');
 
+
 Recipes.allow({
 	insert: function(userId, doc){
 		return !!userId;
@@ -22,11 +23,25 @@ RecipeSchema = new SimpleSchema({
 	name: {
 		type: String,
 		label: "Name"
+	},	
+	location: {
+		type: [Number],
+        decimal: true,
+        autoform:{
+            type: 'map',
+            afFieldInput:{
+                    geolocation: true,
+                    searchBox: true,
+                    autolocate: true,
+                    reverse: true
+                }
+            }
 	},
 	desc: {
 		type: String,
 		label: "Description"
 	},
+
 	ingredients: {
 		type: [Ingredient]
 	},
@@ -57,7 +72,7 @@ RecipeSchema = new SimpleSchema({
 		autoform: {
 			type: "hidden"
 		}
-	}
+	}	
 });
 
 Meteor.methods({
@@ -70,6 +85,11 @@ Meteor.methods({
 	},
 	deleteRecipe: function(id){
 		Recipes.remove(id);
+	},
+	getLocation: function(){
+		var latLng = Geolocation.latLng();			
+			var location = "\"[ " + latLng.lng + ", "+ latLng.lat + "]\"";
+			console.log("location : " + location);
 	}
 });
 

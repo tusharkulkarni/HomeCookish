@@ -37,6 +37,20 @@ RecipeSchema = new SimpleSchema({
                 }
             }
 	},
+	telephone: {
+    	type: String,
+    	autoform: {
+      		type: 'intl-tel-input',
+      		'class': 'form-control',
+      		afFieldInput: {
+        		inputOptions: {
+          			autoFormat: true,
+          			defaultCountry: 'auto'
+        		}
+      		}
+    	}
+  	},
+	
 	desc: {
 		type: String,
 		label: "Description"
@@ -45,6 +59,9 @@ RecipeSchema = new SimpleSchema({
 	ingredients: {
 		type: [Ingredient]
 	},
+	
+	
+
 	inMenu: {
 		type: Boolean,
 		defaultValue: false,

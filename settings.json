@@ -1,7 +1,8 @@
 {
 	"public": {
-		"ga": {
-			"account": "UA-XXXXXXX-X"
-		}
-	}
+		"CLOUDINARY_API_KEY": "147571764273615",
+    	"CLOUDINARY_CLOUD_NAME": "tushk1990"
+	},
+	"CLOUDINARY_API_SECRET": "_EeXJTA8DX1c20l5LCF5hpKjG0U"
+	
 }

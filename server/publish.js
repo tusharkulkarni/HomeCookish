@@ -1,10 +1,6 @@
 Meteor.publish('recipes', function(lat, lon){
-	console.log("latitude : " + lat);
-
-	if(lat){		
-
-	
-	return Recipes.find( { $and: [ { inMenu: true },
+	if(lat){	
+		return Recipes.find( { $and: [ { inMenu: true },
 								{ location :
                          			{ $near :
                            				{ $geometry :
@@ -18,7 +14,7 @@ Meteor.publish('recipes', function(lat, lon){
                          		]
                         	} );
 	}else{
-	return Recipes.find({});
+		return Recipes.find({});
 	}
 });
 

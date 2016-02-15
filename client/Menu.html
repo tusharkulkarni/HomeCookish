@@ -1,5 +1,5 @@
 <Template name="Menu">
-	<h1 class="page-title">My Current Menu</h1>
+	<h3 class="page-title"><input type="text" name="input" placeholder="Enter Location"></h3>	
 	{{#each recipes}}
 		{{> MenuItem}}
 	{{else}}
@@ -10,6 +10,11 @@
 <Template name="MenuItem">
 	<div class="menu-item">
 		<h3>{{name}}</h3>
+		<a href={{image}}>
+			<img src={{image}} style="width: 10%; height: 10%">
+		</a>
 		<p>{{desc}}</p>
+		<div style="width: 100%;">		
+		</div>
 	</div>
 </Template>

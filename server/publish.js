@@ -1,5 +1,21 @@
-Meteor.publish('recipes', function(){
-	return Recipes.find({author: this.userId});
+Meteor.publish('recipes', function(lat, lon){
+	console.log("latitude : " + lat);
+
+	if(lat){
+		console.log("inside if");
+	return Recipes.find( { location :
+                         		{ $near :
+                           			{ $geometry :
+                              			{ type : "Point" ,
+                                		coordinates : [lat, lon] 
+                                		} ,
+                             			$maxDistance : 10000
+                         			} 
+                         		} 
+                        	} );
+	}else{
+	return Recipes.find({});
+	}
 });
 
 Meteor.publish('singleRecipes', function(id){

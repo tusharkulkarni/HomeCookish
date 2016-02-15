@@ -17,7 +17,7 @@ Template.Menu.onCreated(function() {
 
 Template.Menu.helpers({
 	recipes: ()=> {		
-		return Recipes.find();		
+		return Recipes.find({inMenu: true});		
 	}			
 });
 

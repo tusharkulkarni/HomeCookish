@@ -18,7 +18,7 @@ Meteor.publish('recipes', function(lat, lon){
 	}
 });
 
-Meteor.publish('recipes', function(){	
+Meteor.publish('personalRecipes', function(){	
 	return Recipes.find({author: this.userId});
 });
 

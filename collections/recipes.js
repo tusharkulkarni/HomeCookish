@@ -37,6 +37,14 @@ RecipeSchema = new SimpleSchema({
                 }
             }
 	},
+	image: {
+    	type: String,
+    	autoform: {
+      		afFieldInput: {
+        		type: 'cloudinary'
+      		}
+    	}
+  	},
 	telephone: {
     	type: String,
     	autoform: {

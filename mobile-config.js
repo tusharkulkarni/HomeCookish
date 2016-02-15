@@ -43,3 +43,6 @@ App.launchScreens({
 App.accessRule('https://*.googleapis.com/*');
 App.accessRule('https://*.google.com/*');
 App.accessRule('https://*.gstatic.com/*');
+App.accessRule('https://res.cloudinary.com/tushk1990/*');
+App.accessRule('blob:*');
+App.accessRule('*');

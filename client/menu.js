@@ -21,6 +21,15 @@ Template.Menu.helpers({
 	}			
 });
 
+//required for cordova call plugin
+callSuccess = function(){
+  console.log('call done');
+  }
+
+callError = function(){
+  console.log('Error : verify phone number');
+  }
+
 Template.Menu.onRendered(function() {
   this.autorun(function() {
     var lat, long;
@@ -37,4 +46,15 @@ Template.Menu.onRendered(function() {
       });     
     }    
   });
+});
+
+Template.Menu.events({
+  'click a.call-open': function(event) {
+    // On Cordova, open phone number in the dialer rather than In-App
+    if (Meteor.isCordova) {
+      console.log("telephone : " + event.target.href);
+      event.preventDefault();
+      window.plugins.CallNumber.callNumber(callSuccess, callError,event.target.href,true)
+    }
+  }
 });

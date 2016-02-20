@@ -32,10 +32,10 @@ $wide = 1200px
 black = #222
 grey = #D8D8D8
 light-grey = #EEE
-purp = #524763
-dark-purp = #373142
+purp = #E61A1A
+dark-purp = #9E0F0D
 red = #E54B4B
-teal = #82D8D8
+teal = #FFFFFF
 dark-teal = #66A6A6
 green = #CBE56C
 blue = #16528E
@@ -109,7 +109,8 @@ p
     margin-bottom 30px 
 
 .billboard
-    background dark-purp
+    background-image: url("/bg.jpg");
+    background-repeat: no-repeat;
     color #FFF
     font-size 2em
     text-align center
@@ -388,7 +389,62 @@ input, select, textarea
 
 .login-buttons-dropdown-align-
     #login-dropdown-list
-        right 0
+        right auto
         left auto 
         a 
             color dark-purp
+
+.img 
+    width: 20%
+    max-width: 20%
+
+.ui-page
+    float:center
+    background-attachment: fixed !important;
+    background-clip: border-box!important;
+    background-color: rgba(0, 0, 0, 0)!important;
+    background-image: url("/bg.jpg");
+    background-origin: padding-box!important;
+    background-position: 0 0!important;
+    background-repeat: no-repeat!important;
+    background-size: cover!important;
+    height: 100%!important;
+    position: fixed !important;
+    top: 0;
+    width: 100%
+
+.login
+    border: 2px solid white;
+    border-radius: 25px;
+    color #FFF
+    top-margin: 50x;
+    width: 500px; 
+    margin: 0 auto
+
+.header-logo
+    float: left;
+    width: 200px;
+    height: 50px;
+    background-image: url("/header.png");
+    background-size: 90% 100%;
+    background-color: rgba(0, 0, 0, 0);
+    background-repeat: no-repeat
+
+.offer-meal
+    background-image: url("/fp.png");
+    float: left;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 40px;
+    background-position: 0 0;
+    background-position: left center;
+
+.find-meal
+    background-image: url("/fc.png");
+    float: left;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 40px;
+    

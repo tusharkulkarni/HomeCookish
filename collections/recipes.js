@@ -11,9 +11,13 @@ Recipes.allow({
 });
 
 RecipeSchema = new SimpleSchema({
-	name: {
+	username: {
 		type: String,
 		label: "Name"
+	},
+	name: {
+		type: String,
+		label: "Name of the Dish"
 	},	
 	location: {
 		type: [Number],
@@ -60,6 +64,10 @@ RecipeSchema = new SimpleSchema({
 		label: "Ingredients"
 	},
 	
+	price: {
+		type: String,
+		label: "Price"
+	},
 	
 
 	inMenu: {

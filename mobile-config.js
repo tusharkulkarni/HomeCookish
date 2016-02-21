@@ -1,3 +1,15 @@
+App.info({
+  // the bundle ID must be unique across the entire app store
+  // usually reverse domains of the creators are used
+  id: 'com.homecookish',
+  version: '1.0.0',
+  name: 'HomeCookish',
+  description: 'Order or Cook and sell Homecooked food',
+  author: 'Tushar Satish Kulkarni',
+  email: 'tusharkulkarni1990@gmail.com',
+  website: 'http://www.homecookish.com/'
+});
+
 App.icons({
   // iOS
   'iphone': 'resources/icons/icon-60x60.png',
@@ -44,6 +56,8 @@ App.accessRule('https://*.googleapis.com/*');
 App.accessRule('https://*.google.com/*');
 App.accessRule('https://*.gstatic.com/*');
 App.accessRule('https://res.cloudinary.com/tushk1990/*');
+App.accessRule('http://res.meteor.com/*');
+App.accessRule('http://www.homecookish.com/*');
 App.accessRule('blob:*');
 App.accessRule('tel:*');
 App.accessRule('mailto:*');

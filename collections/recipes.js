@@ -10,15 +10,6 @@ Recipes.allow({
 	}
 });
 
-Ingredient = new SimpleSchema({
-	name: {
-		type: String
-	},
-	amount: {
-		type: String
-	}
-});
-
 RecipeSchema = new SimpleSchema({
 	name: {
 		type: String,
@@ -65,7 +56,8 @@ RecipeSchema = new SimpleSchema({
 	},
 
 	ingredients: {
-		type: [Ingredient]
+		type: String,
+		label: "Ingredients"
 	},
 	
 	

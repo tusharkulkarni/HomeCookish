@@ -1,12 +1,14 @@
 <template name="Recipe">
 	<article class="recipe {{#if inMenu}}in-menu{{/if}}">
-		<h3>Dish Name : {{name}}</h3>
+		<h3>{{name}}</h3>
 		{{#if editMode}}
 			{{> quickForm collection="Recipes" id=updateRecipeId type="update" doc=this autosave=true}}
 		{{else}}
 			<p> Description : {{desc}}</p>
-			<p>	Ingredients : {{ingredient}}</p>
-			<a href="/recipe/{{_id}}">View Details</a>
+			<p>	Ingredients : {{ingredients}}</p>
+			<p> Price : {{price}} </p>
+
+			<!--<a href="/recipe/{{_id}}">View Details</a>-->
 			{{#if inMenu}}
 				<button class="btn-deny toggle-menu"> Remove From Menu</button>
 			{{else}}

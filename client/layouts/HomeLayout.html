@@ -1,12 +1,24 @@
 <template name="HomeLayout">
 	<main>
 	
-		<div class="billboard ui-page">
+		<!-- <div class="billboard ui-page">
 			<div style="top:2%;position:relative;"> 
-			<img src="/flash-logo.png" class="img"/> 
-	        <div class="login" style="font-size:1em">{{> loginButtons}} </div>
+				<img src="/flash-logo.png" class="img"/> 
+			        	<div class="login" style="font-size:1em">{{> loginButtons}} </div>
+			        </div>
+			        <div class="login-click" style="font-size:0.8em">{{> Template.dynamic template=verify}} </div>
+		</div> -->
+
+		<div class="billboard ui-page">
+			<div class="login" style="font-size:0.8em">
+	        	{{> loginButtons}} 
 	        </div>
-	        <div class="login-click" style="font-size:0.8em">{{> Template.dynamic template=verify}} </div>
+			<div style="top:2%; position:relative; "> 
+				<img src="/flash-logo.png" class="img"/> 
+			</div>
+
+	        
+	        <div class="login-click" style="font-size:0.7em">{{> Template.dynamic template=verify}} </div>
 		</div>
 	</main>
 </template>

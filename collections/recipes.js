@@ -11,8 +11,37 @@ Recipes.allow({
 });
 
 RecipeSchema = new SimpleSchema({
+	/*userDetails: {
+		type: String,
+		optional: true,
+		autoform:{
+			type:"hidden"
+		}
+	},*/
 	username: {
 		type: String,
+		optional: true,
+		autoValue: function(){
+			var usr = UserProfile.findOne({'author': Meteor.userId()}).name;
+			console.log("usr : "+usr);
+			return usr
+		},
+		autoform: {
+			type: "hidden"
+		},
+		label: "Name"
+	},
+	telephone: {
+		type: String,
+		optional: true,	
+		autoValue: function(){
+			var tel = UserProfile.findOne({'author': Meteor.userId()}).telephone;
+			console.log("tel : "+tel);
+			return tel
+		},	
+		autoform: {
+			type: "hidden"
+		},
 		label: "Name"
 	},
 	name: {
@@ -22,6 +51,7 @@ RecipeSchema = new SimpleSchema({
 	location: {
 		type: [Number],
         decimal: true,
+        label: "Where would you like to provide this dish?",
         autoform:{
             type: 'map',
             afFieldInput:{
@@ -34,25 +64,15 @@ RecipeSchema = new SimpleSchema({
 	},
 	image: {
     	type: String,
+    	label: "Select image for dish",
+    	optional: true,
     	autoform: {
       		afFieldInput: {
         		type: 'cloudinary'
       		}
     	}
   	},
-	telephone: {
-    	type: String,
-    	autoform: {
-      		type: 'intl-tel-input',
-      		'class': 'form-control',
-      		afFieldInput: {
-        		inputOptions: {
-          			autoFormat: true,
-          			defaultCountry: 'auto'
-        		}
-      		}
-    	}
-  	},
+	
 	
 	desc: {
 		type: String,
@@ -107,6 +127,14 @@ Meteor.methods({
 				inMenu: !currentState
 			}
 		});
+		if(Recipes.findOne(id).inMenu){
+			var provider = {};
+			provider['userId'] = Meteor.userId();
+			provider['recipeId'] = id;
+			Meteor.call('insertActiveFp',provider);
+		}else{
+			console.log('removeRecipe');
+		}
 	},
 	deleteRecipe: function(id){
 		Recipes.remove(id);
@@ -116,6 +144,25 @@ Meteor.methods({
 			var location = "\"[ " + latLng.lng + ", "+ latLng.lat + "]\"";
 			console.log("location : " + location);
 	}
+	/*,
+	updateRecipe: function(){
+		console.log('*************updateRecipe begins***************');
+		console.log("Meteor.userId() : "+Meteor.userId());
+		var rec =  Recipes.findOne({'author': Meteor.userId()}) ;
+		console.log("rec : "+rec);
+		var usr = UserProfile.findOne({'author': Meteor.userId()});
+		console.log("usr : "+usr);
+				
+		//console.log('****************updating recipe*********************'); 
+        //var dynamicItem = {};       	   	
+    	//dynamicItem["userDetails"] = userId;        	
+    	//Recipes.update({_id: recipeId}, { $set: dynamicItem});
+    
+    	console.log('****************update complete*********************'); 
+
+   }*/
 });
+
+
 
 Recipes.attachSchema( RecipeSchema );

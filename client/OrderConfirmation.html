@@ -1,0 +1,21 @@
+<template name="OrderConfirmation">
+<h2>Please select the food items you ordered</h2>
+
+
+	<form class="order-form" id="order-form">
+   		{{#if Template.subscriptionsReady}}
+			{{#each calledRecipes}}	
+				<input type="checkbox" name={{transactionId}} value={{transactionId}}>
+				<label for={{transactionId}}>{{recipeName}}</label><br/>
+			{{/each}}
+		{{else}}
+			<p>Loading</p>
+		{{/if}}
+			<input type="checkbox" name="none" value="none">
+			<label for=none><i>None of the above</i></label><br/>
+			<input type="submit"  value="Submit" />
+	</form>
+	
+</template>
+
+

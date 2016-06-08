@@ -2,9 +2,9 @@ App.info({
   // the bundle ID must be unique across the entire app store
   // usually reverse domains of the creators are used
   id: 'com.homecookish',
-  version: '1.0.0',
+  version: '1.0.1',
   name: 'HomeCookish',
-  description: 'Order or Cook and sell Homecooked food',
+  description: 'Platform to buy and sell home cooked food',
   author: 'Tushar Satish Kulkarni',
   email: 'tusharkulkarni1990@gmail.com',
   website: 'http://www.homecookish.com/'

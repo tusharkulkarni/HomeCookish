@@ -1,17 +1,20 @@
 Meteor.startup(function () {
-	
-  //-- Application name
-  Accounts.emailTemplates.siteName = 'www.homecookish.com';
 
-  //-- Subject line of the email.
-  Accounts.emailTemplates.verifyEmail.subject = function(user) {
-    return 'Confirm Your Email Address for HomeCookish';
-  };
+  process.env.MAIL_URL = 'smtp://homecookish@gmail.com:homecookish2016@smtp.gmail.com:587'
 
-  //-- Email text
-  Accounts.emailTemplates.verifyEmail.text = function(user, url) {
-    return 'Thank you for registering.  Please click on the following link to verify your email address: \r\n' + url;
-  };
+Accounts.emailTemplates = {
+      from: 'HomeCookish <homecookish@gmail>',
+      siteName: 'www.homecookish.com',
+      verifyEmail: {
+        subject: function(user) {
+          return 'Verification email from homecookish.com';
+        },
+        text: function(user, url) {
+          return 'Hi there,\n\n' +
+            'Welcome onboard!!! We are happy to have you. \n\nPlease click on the below link to verify your email address and get started with your homecookish journey :) \r\n\n' + url;
+        }
+      }
+    };
 
 	 Recipes._ensureIndex({"location": "2dsphere"});
 	 Meteor.methods({
